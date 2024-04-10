@@ -19,3 +19,19 @@ jobs:
         with:
           host: ${{ secrets.HOST }} //secrets är adressen till aws  först lägga till i secrets i github. Ska ha namnet HOST (NEW REPOSITORY SECRET)
           username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_KEY }} //Måste öppna pem-filen dra in den i vscode- kopiera hela filen (ctrl +A + copy) - sen new repository secret
+          port: 22
+          source: "."
+          target: "/home/ubuntu/bank"
+
+      - name: Run Docker on EC2
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_KEY }}
+          port: 22
+          script: |
+            cd /home/ubuntu/bank
+            sudo docker-compose down 
+            sudo docker-compose up --build -d
