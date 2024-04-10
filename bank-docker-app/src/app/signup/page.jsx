@@ -30,8 +30,6 @@ export default function SignUp() {
       console.log("Success:", data);
 
       setSuccessMessage("You've successfully created an account!");
-
-      //   router.push("/userpage"); // Ensure this route exists and is correctly configured in your Next.js app
     } catch (error) {
       console.error(error);
       setErrorMessage(error.message);
