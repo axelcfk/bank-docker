@@ -1,0 +1,23 @@
+version: "3"
+services:
+  nextjs:
+    build: ./bank-docker-app
+    ports:
+      - "4003:3000" # Map port 4003 on the host to port 4003 in the container
+  express:
+    build: ./backend
+    ports:
+      - "4002:4002" # Map port 4002 on the host to port 4002 in the container
+  mysql:
+    image: mysql:5.7
+    platform: linux/amd64
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: root
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+volumes:
+  mysql-data:
