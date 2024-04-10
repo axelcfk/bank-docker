@@ -24,6 +24,17 @@ jobs:
           source: "."
           target: "/home/ubuntu/bank"
 
+          # Ensure Docker Daemon is running
+      - name: Ensure Docker is running
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_KEY }}
+          port: 22
+          script: |
+            sudo systemctl start docker
+
       - name: Run Docker on EC2
         uses: appleboy/ssh-action@master
         with:
