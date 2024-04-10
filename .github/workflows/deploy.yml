@@ -17,9 +17,9 @@ jobs:
       - name: Copy files to EC2
         uses: appleboy/scp-action@master
         with:
-          host: ${{ secrets.HOST }} //secrets är adressen till aws  först lägga till i secrets i github. Ska ha namnet HOST (NEW REPOSITORY SECRET)
+          host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
-          key: ${{ secrets.SSH_KEY }} //Måste öppna pem-filen dra in den i vscode- kopiera hela filen (ctrl +A + copy) - sen new repository secret
+          key: ${{ secrets.SSH_KEY }}
           port: 22
           source: "."
           target: "/home/ubuntu/bank"
