@@ -340,6 +340,6 @@ app.get("/", (req, res) => {
 
 //startar servern och gör så att appen lyssnar på port
 
-app.listen(port, () => {
+app.listen(port, "0.0.0.0", () => {
   console.log(`Bankens backend körs på http://localhost:${port}`);
 });
