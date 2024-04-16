@@ -15,7 +15,7 @@ export default function SignUp() {
     e.preventDefault();
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users`, {
+      const response = await fetch(`http://13.60.52.124:5009/users`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
