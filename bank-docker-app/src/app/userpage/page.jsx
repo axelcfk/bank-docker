@@ -38,17 +38,14 @@ export default function UserPage() {
     const token = localStorage.getItem("token");
 
     try {
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/me/accounts`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify({ userId, token }),
-        }
-      );
+      const response = await fetch(`http://13.60.52.124:4002/me/accounts`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({ userId, token }),
+      });
       if (!response.ok) {
         throw new Error(`Server responded with status: ${response.status}`);
       }
@@ -69,7 +66,7 @@ export default function UserPage() {
 
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/me/accounts/deposit`,
+        `http://13.60.52.124:4002/me/accounts/deposit`,
         {
           method: "POST",
           headers: {
@@ -102,7 +99,7 @@ export default function UserPage() {
 
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/me/accounts/withdraw`,
+        `http://13.60.52.124:4002/me/accounts/withdraw`,
         {
           method: "POST",
           headers: {
@@ -141,7 +138,7 @@ export default function UserPage() {
     if (balance >= amount) {
       try {
         const response = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL}/me/accounts/pay`,
+          `http://13.60.52.124:4002/me/accounts/pay`,
           {
             method: "POST",
             headers: {
@@ -189,7 +186,7 @@ export default function UserPage() {
     if (balance >= totalPayments) {
       try {
         const response = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL}/me/accounts/pay/all`,
+          `http://13.60.52.124:4002/me/accounts/pay/all`,
           {
             method: "POST",
             headers: {
@@ -235,7 +232,7 @@ export default function UserPage() {
     const userId = localStorage.getItem("userId");
     const token = localStorage.getItem("token");
 
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/logout`, {
+    const response = await fetch(`http://13.60.52.124:4002/logout`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -7,7 +7,7 @@ services:
   express:
     build: ./backend
     ports:
-      - 5009:5009" # Map port 4002 on the host to port 4002 in the container
+      - "4002:4002" # Map port 4002 on the host to port 4002 in the container
   mysql:
     image: mysql:5.7
     platform: linux/amd64

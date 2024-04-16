@@ -6,7 +6,7 @@ import cors from "cors";
 import crypto from "crypto";
 
 const app = express();
-const port = 5009;
+const port = 4002;
 
 //Middleware
 
