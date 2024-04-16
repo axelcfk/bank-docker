@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 export default function SignUp() {
@@ -9,10 +8,10 @@ export default function SignUp() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
-  const router = useRouter(); // useRouter hook for redirecting after successful sign-up
 
   async function handleSubmit(e) {
     e.preventDefault();
+    setErrorMessage(""); // Clear previous error messages
 
     try {
       const response = await fetch(`http://13.60.52.124:4002/users`, {
@@ -22,13 +21,21 @@ export default function SignUp() {
         },
         body: JSON.stringify({ username, password }),
       });
-      if (!response.ok) {
-        throw new Error("This user already exists");
-      }
 
       const data = await response.json();
-      console.log("Success:", data);
 
+      if (!response.ok) {
+        if (
+          response.status === 400 &&
+          data.message === "This user already exists"
+        ) {
+          throw new Error("This user already exists"); // Specific message for duplicate user
+        } else {
+          throw new Error(data.message || "An unexpected error occurred"); // General error message
+        }
+      }
+
+      console.log("Success:", data);
       setSuccessMessage("You've successfully created an account!");
     } catch (error) {
       console.error(error);
