@@ -16,12 +16,12 @@ app.use(bodyParser.json());
 
 // connect to DB
 const pool = mysql.createPool({
-  host: "localhost",
+  host: "mysql",
   user: "root",
   password: "root",
   database: "banksql",
   // port: 8889,
-  port: 3307,
+  // port: 3307,
 });
 
 // help function to make code look nicer
