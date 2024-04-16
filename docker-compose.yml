@@ -7,13 +7,13 @@ services:
   express:
     build: ./backend
     ports:
-      - "4002:4002" # Map port 4002 on the host to port 4002 in the container
+      - 5009:5009" # Map port 4002 on the host to port 4002 in the container
   mysql:
     image: mysql:5.7
     platform: linux/amd64
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: root
+      MYSQL_DATABASE: banksql
     ports:
       - "3307:3306"
     volumes:
