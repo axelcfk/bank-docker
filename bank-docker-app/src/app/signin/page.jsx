@@ -13,7 +13,7 @@ export default function SignIn() {
     e.preventDefault();
 
     try {
-      const response = await fetch(`http://16.170.201.108/sessions`, {
+      const response = await fetch(`http://16.170.201.108:4002/sessions`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
