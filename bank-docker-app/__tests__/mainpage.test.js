@@ -11,11 +11,3 @@ describe("First", () => {
     expect(heading).toBeInTheDocument();
   });
 });
-
-// describe("SignUp", () => {
-//   it("renders a sign in modal", () => {
-//     render(<SignUp />);
-
-//     const signUpModal = screen.getByRole();
-//   });
-// });

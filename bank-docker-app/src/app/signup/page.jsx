@@ -14,7 +14,7 @@ export default function SignUp() {
     setErrorMessage(""); // Clear previous error messages
 
     try {
-      const response = await fetch(`http://13.60.52.124:4002/users`, {
+      const response = await fetch(`http://16.170.201.108:4002/users`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

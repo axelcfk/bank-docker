@@ -38,7 +38,7 @@ export default function UserPage() {
     const token = localStorage.getItem("token");
 
     try {
-      const response = await fetch(`http://13.60.52.124:4002/me/accounts`, {
+      const response = await fetch(`http://16.170.201.108:4002/me/accounts`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -66,7 +66,7 @@ export default function UserPage() {
 
     try {
       const response = await fetch(
-        `http://13.60.52.124:4002/me/accounts/deposit`,
+        `http://16.170.201.108:4002/me/accounts/deposit`,
         {
           method: "POST",
           headers: {
@@ -99,7 +99,7 @@ export default function UserPage() {
 
     try {
       const response = await fetch(
-        `http://13.60.52.124:4002/me/accounts/withdraw`,
+        `http://16.170.201.108:4002/me/accounts/withdraw`,
         {
           method: "POST",
           headers: {
@@ -138,7 +138,7 @@ export default function UserPage() {
     if (balance >= amount) {
       try {
         const response = await fetch(
-          `http://13.60.52.124:4002/me/accounts/pay`,
+          `http://16.170.201.108:4002/me/accounts/pay`,
           {
             method: "POST",
             headers: {
@@ -186,7 +186,7 @@ export default function UserPage() {
     if (balance >= totalPayments) {
       try {
         const response = await fetch(
-          `http://13.60.52.124:4002/me/accounts/pay/all`,
+          `http://16.170.201.108:4002/me/accounts/pay/all`,
           {
             method: "POST",
             headers: {
@@ -232,7 +232,7 @@ export default function UserPage() {
     const userId = localStorage.getItem("userId");
     const token = localStorage.getItem("token");
 
-    const response = await fetch(`http://13.60.52.124:4002/logout`, {
+    const response = await fetch(`http://16.170.201.108:4002/logout`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
